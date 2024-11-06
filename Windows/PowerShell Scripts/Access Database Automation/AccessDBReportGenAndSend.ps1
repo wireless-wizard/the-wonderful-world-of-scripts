@@ -1,33 +1,33 @@
 #==========================================================================================================================
-# Title				      AccessDBReportGenAndSend.ps1
-# Author			      Nathan J. Schuetz
-# Description		    To automatcly generate a PDF report from an access database so I don't need
-#					          to touch it for my own sanity.  Please note if you are running this with Windows Task Scheduler
-#					          you need to set the "Run only when user is logged on" otherwise it won't open the Access Database.
+# Title			AccessDBReportGenAndSend.ps1
+# Author		Nathan J. Schuetz
+# Description		To automatcly generate a PDF report from an access database so I don't need
+#			to touch it for my own sanity.  Please note if you are running this with Windows Task Scheduler
+#			you need to set the "Run only when user is logged on" otherwise it won't open the Access Database.
 #
-# Created			      11/04/2024
-# Modified			    11/06/2024
-# Status			      Working
+# Created		11/04/2024
+# Modified		11/06/2024
+# Status		Working
 #===========================================================================================================================
 
 # Declorations
 #==============
-$dbPath = "PathToDB.accdb" 										                # Path to the Access Database that I want the report generated from 
-$reportName1 = "rptName1"  										                # Name of the first report in Access
-$reportName2 = "rptName2"										                  # Name of the second report in Access
-$reportDumpPath = "C:\Temp\ReportDump" 							          # Can be ether a local or remote location
-$reportArchivePath = "C:\Temp\ReportDump\Archive" 				    # Can be ether a local or remote location
-$dateString = (Get-Date -Format "yyyy-MM-dd") 					      # Generate a date string in the format "yyyy-MM-dd"
-$outputPath1 = "C:\Temp\ReportDump\rptName1_$dateString.pdf"  # Full pathto save the report, including the date in the filename
+$dbPath = "PathToDB.accdb"					# Path to the Access Database that I want the report generated from 
+$reportName1 = "rptName1"					# Name of the first report in Access
+$reportName2 = "rptName2"					# Name of the second report in Access
+$reportDumpPath = "C:\Temp\ReportDump" 				# Can be ether a local or remote location
+$reportArchivePath = "C:\Temp\ReportDump\Archive" 		# Can be ether a local or remote location
+$dateString = (Get-Date -Format "yyyy-MM-dd") 			# Generate a date string in the format "yyyy-MM-dd"
+$outputPath1 = "C:\Temp\ReportDump\rptName1_$dateString.pdf"  	# Full pathto save the report, including the date in the filename
 $outputPath2 = "C:\Temp\ReportDump\rptName2_$dateString.pdf" 	# Full pathto save the report, including the date in the filename
-$webhook = 'webhookaddress' 									                # Webhook intergration for notifications if you want them.
+$webhook = 'webhookaddress' 					# Webhook intergration for notifications if you want them.
 
 # SMTP settings
-$smtpServer = "smtpaddress"  									                # Replace with your SMTP server
-$smtpFrom = "eamil@someplace.com"								              # Email address of the system
-$smtpTo = "toemail@someplace.com"  								            # You can add multiple recipients as a comma-separated string
-$emailSubject = "Email Subject"									              # Replace with your desired subject
-$emailBody = "Body of the email"								              # Replace with your desired message within the email
+$smtpServer = "smtpaddress"  					# Replace with your SMTP server
+$smtpFrom = "eamil@someplace.com"				# Email address of the system
+$smtpTo = "toemail@someplace.com"  				# You can add multiple recipients as a comma-separated string
+$emailSubject = "Email Subject"					# Replace with your desired subject
+$emailBody = "Body of the email"				# Replace with your desired message within the email
 
 
 # Processing
