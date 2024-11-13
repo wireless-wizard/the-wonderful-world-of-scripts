@@ -10,6 +10,8 @@ This is optized for Windows 10 and for TCM 10.2 however I have used a simular sc
 
 Like always be sure you understand what the script is doing before running it in your own enviornment.
 
+Also, I assume all the install files for TCM are hosted on your "App Server" or TCM Server.
+
 # How to use
 
-Replace all the items surrounded by "[]"
+First replace all the items surrounded by "[]" then run this scrip on a PC that you want the TCM client installed on.
