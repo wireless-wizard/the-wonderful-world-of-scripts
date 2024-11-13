@@ -1,5 +1,5 @@
 #===================================================================================================
-# Tytle: 			PullSkyjackFiles.ps1
+# Tytle: 			PullEDIFiles.ps1
 # Author: 			Nathan J. Schuetz
 #
 # Description:		Move any files into a temporary holding location to manually edit the file later
